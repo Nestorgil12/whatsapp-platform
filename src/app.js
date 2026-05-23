@@ -1,4 +1,7 @@
 require('dotenv').config();
+console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'EXISTE' : 'NO EXISTE');
+console.log('DB_HOST:', process.env.DB_HOST);
+console.log('DB_PORT:', process.env.DB_PORT);
 const express = require('express');
 const { sequelize } = require('./models');
 const webhookRoutes = require('./routes/webhook');
