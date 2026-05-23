@@ -1,7 +1,4 @@
 require('dotenv').config();
-console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'EXISTE' : 'NO EXISTE');
-console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_PORT:', process.env.DB_PORT);
 const express = require('express');
 const { sequelize } = require('./models');
 const webhookRoutes = require('./routes/webhook');
@@ -43,8 +40,6 @@ async function start() {
     });
   } catch (err) {
     console.error('[FATAL] Could not start server:', err.message);
-    console.error('[FATAL] Stack trace:', err.stack);
-    console.error('[FATAL] Full error:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
     process.exit(1);
   }
 }
