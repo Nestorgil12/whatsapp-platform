@@ -40,6 +40,8 @@ async function start() {
     });
   } catch (err) {
     console.error('[FATAL] Could not start server:', err.message);
+    console.error('[FATAL] Stack trace:', err.stack);
+    console.error('[FATAL] Full error:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
     process.exit(1);
   }
 }
