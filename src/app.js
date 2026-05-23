@@ -35,7 +35,7 @@ async function start() {
     console.log('[DB] Connection established');
     await sequelize.sync({ alter: true });
     console.log('[DB] Models synchronized');
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`[SERVER] Running on port ${PORT}`);
     });
   } catch (err) {
