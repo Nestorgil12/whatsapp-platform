@@ -1,4 +1,14 @@
 require('dotenv').config();
+
+process.on('uncaughtException', (err) => {
+  console.error('[CRASH] Uncaught exception:', err.message, err.stack);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[CRASH] Unhandled rejection:', reason);
+  process.exit(1);
+});
 const express = require('express');
 const { sequelize } = require('./models');
 const webhookRoutes = require('./routes/webhook');
