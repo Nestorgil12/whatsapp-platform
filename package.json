@@ -1,13 +1,11 @@
 {
-  "name": "whatsapp-ai-platform",
+  "name": "whatsapp-platform",
   "version": "1.0.0",
-  "description": "Multi-tenant WhatsApp AI agent platform powered by Claude",
+  "description": "Multi-tenant WhatsApp AI platform powered by Claude",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "db:migrate": "node src/db/migrate.js",
-    "db:seed": "node src/db/seed.js"
+    "dev": "nodemon src/app.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
