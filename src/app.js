@@ -30,16 +30,17 @@ app.use((err, req, res, next) => {
 });
 
 async function start() {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`[SERVER] Running on port ${PORT}`);
+  });
+
   try {
     await sequelize.authenticate();
     console.log('[DB] Connection established');
     await sequelize.sync({ alter: true });
     console.log('[DB] Models synchronized');
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`[SERVER] Running on port ${PORT}`);
-    });
   } catch (err) {
-    console.error('[FATAL] Could not start server:', err.message);
+    console.error('[FATAL] Database connection failed:', err.message);
     process.exit(1);
   }
 }
